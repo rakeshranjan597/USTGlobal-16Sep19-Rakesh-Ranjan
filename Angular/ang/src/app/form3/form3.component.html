@@ -1,0 +1,73 @@
+<form action="" class="col-md-4 offset-4 mt-5 card card-body" #form="ngForm" (ngSubmit)="registerData(form)">
+   
+        <h1 class="text-center bg-info text-white">Form 3</h1>
+    <div class="form-group">
+        <input type="candidate" name="candidate" id="candidate" class="form-control" #candidate="ngModel" ngModel placeholder="User Name" required minlength="7" >
+        <div *ngIf="candidate.touched && candidate.invalid">
+            <p class="alert alert-danger" *ngIf="candidate.errors.required">This field is required</p>
+            <p class="text-danger" *ngIf="candidate.errors.minlength">* Minimum 7 characters Required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+            <input type="candidate" name="candidate" id="candidate" class="form-control" #candidate="ngModel" ngModel placeholder="User Page" required minlength="7" >
+            <div *ngIf="candidate.touched && candidate.invalid">
+                <p class="alert alert-danger" *ngIf="candidate.errors.required">This field is required</p>
+                <p class="text-danger" *ngIf="candidate.errors.minlength">* Minimum 7 characters Required</p>
+            </div>
+        </div>
+
+
+
+    <div class="form-group">
+        <p>Gender</p>
+        <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+              </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Other</label>
+            </div>
+    </div>
+
+    <div class="form-group">
+            <input type="user" name="user" id="user" class="form-control" #user="ngModel" ngModel placeholder="User Email" required minlength="7" >
+            <div *ngIf="user.touched && user.invalid">
+                <p class="alert alert-danger" *ngIf="user.errors.required">This field is required</p>
+                <p class="text-danger" *ngIf="user.errors.minlength">* Minimum 7 characters Required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+                <input type="num" name="num" id="num" class="form-control" #num="ngModel" ngModel placeholder="User Contact Number" required minlength="10" >
+                <div *ngIf="num.touched && num.invalid">
+                    <p class="alert alert-danger" *ngIf="num.errors.required">This field is required</p>
+                    <p class="text-danger" *ngIf="num.errors.minlength">* Minimum 10 characters Required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control" #password="ngModel" ngModel placeholder="Enter Password..." required minlength="6">
+                    <div *ngIf="password.touched && password.invalid">
+                            <p class="alert alert-danger" *ngIf="password.errors.required">This field is required</p>
+                            <p class="text-danger" *ngIf="password.errors.minlength">Minimum 6 character required</p>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control" #password="ngModel" ngModel placeholder="ReEnter Password..." required minlength="6">
+                        <div *ngIf="password.touched && password.invalid">
+                                <p class="alert alert-danger" *ngIf="password.errors.required">This field is required</p>
+                                <p class="text-danger" *ngIf="password.errors.minlength">Minimum 6 character required</p>
+                            </div>
+                    </div>
+
+        <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Add User</button>
+            </div>
+</form>
+

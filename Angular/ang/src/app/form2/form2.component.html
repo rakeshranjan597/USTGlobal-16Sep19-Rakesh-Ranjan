@@ -1,0 +1,67 @@
+<form action="" class="col-md-4 offset-4 mt-5 card card-body" #form="ngForm" (ngSubmit)="registerData(form)">
+   
+        <h1 class="text-center bg-success text-white">Form 2</h1>
+    <div class="form-group">
+        <input type="candidate" name="candidate" id="candidate" class="form-control" #candidate="ngModel" ngModel placeholder="Candidate Name" required minlength="7" >
+        <div *ngIf="candidate.touched && candidate.invalid">
+            <p class="alert alert-danger" *ngIf="candidate.errors.required">This field is required</p>
+            <p class="text-danger" *ngIf="candidate.errors.minlength">* Minimum 7 characters Required</p>
+        </div>
+    </div>
+
+
+      <div class="form-group">
+            <input type="year" name="year" id="year" class="form-control" #year="ngModel" ngModel placeholder="Year of Experience" required >
+            <div *ngIf="year.touched && year.invalid">
+                <p class="alert alert-danger" *ngIf="year.errors.required">This field is required</p>
+       
+            </div>
+        </div>
+
+    <div class="form-group">
+        <p>Skills</p>
+        <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">JAVA</label>
+              </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">SQL</label>
+            </div>
+            <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">JAVA SCRIPT</label>
+            </div>
+            <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                        <label class="form-check-label" for="inlineRadio4">Angular</label>
+            </div>
+    </div>
+
+        <div class="form-group">
+                <input type="cctc" name="cctc" id="cctc" class="form-control" #cctc="ngModel" ngModel placeholder="CCTC" required >
+                <div *ngIf="cctc.touched && cctc.invalid">
+                    <p class="alert alert-danger" *ngIf="cctc.errors.required">This field is required</p>
+           
+                </div>
+        </div>
+        <div class="form-group">
+                <input type="sctc" name="sctc" id="sctc" class="form-control" #sctc="ngModel" ngModel placeholder="SCTC" required >
+                <div *ngIf="sctc.touched && sctc.invalid">
+                    <p class="alert alert-danger" *ngIf="sctc.errors.required">This field is required</p>
+           
+                </div>
+        </div>
+
+        <div class="form-group">
+            <input type="location" name="location" id="location" class="form-control" #location="ngModel" ngModel placeholder="Ready to Relocate" required >
+                <div *ngIf="location.touched && location.invalid">
+                        <p class="alert alert-danger" *ngIf="location.errors.required">This field is required</p>
+               
+                </div>
+        </div>
+
+        <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Schedule Interview</button>
+            </div>
+</form>

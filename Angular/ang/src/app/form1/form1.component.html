@@ -1,0 +1,49 @@
+<form action="" class="col-md-4 offset-4 mt-5 card card-body" #form="ngForm">
+   
+ <h1 class="text-center bg-secondary text-white">Form 1</h1>
+    <div class="form-group">
+        <input type="company" name="company" id="company" class="form-control" #company="ngModel" ngModel placeholder="Company Name" required >
+        <div *ngIf="company.touched && company.invalid">
+            <p class="alert alert-danger" *ngIf="company.errors.required">This field is required</p>
+   
+        </div>
+    </div>
+
+    <div class="form-group">
+            <select class="form-control" required>
+                    <option value="0" selected disabled>Skills</option>
+                    <option value="java">Java</option>
+                    <option value="sql">SQL</option>
+                    <option value="angular">Angular</option>
+                  </select>
+    </div>
+
+
+      <div class="form-group">
+            <input type="year" name="year" id="year" class="form-control" #year="ngModel" ngModel placeholder="Year of Experience" required >
+            <div *ngIf="year.touched && year.invalid">
+                <p class="alert alert-danger" *ngIf="year.errors.required">This field is required</p>
+       
+            </div>
+        </div>
+
+        <div class="form-group">
+                <input type="mctc" name="mctc" id="mctc" class="form-control" #mctc="ngModel" ngModel placeholder="MCTC" required >
+                <div *ngIf="mctc.touched && mctc.invalid">
+                    <p class="alert alert-danger" *ngIf="mctc.errors.required">This field is required</p>
+           
+                </div>
+        </div>
+
+        <div class="form-group">
+            <input type="location" name="location" id="location" class="form-control" #location="ngModel" ngModel placeholder="Location" required >
+                <div *ngIf="location.touched && location.invalid">
+                        <p class="alert alert-danger" *ngIf="location.errors.required">This field is required</p>
+               
+                </div>
+        </div>
+
+        <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">ADD REQUIREMENT</button>
+            </div>
+</form>

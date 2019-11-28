@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const items = [{
+            name:'Earring',
+            id:1,
+            price:5000
+        },{
+            name:'Kajal',
+            id:2,
+            price:3000
+        },{
+            name:'Trimmer',
+            id:3,
+            price:4000
+        },{
+            name:'Wallet',
+            id:4,
+            price:1500
+        }]
+        
+        console.log(items)    
+        const updatedItems = items.map(function(item,index){
+            item.price = item.price +300
+            return item
+        })
+        
+        console.log(updatedItems)
+        
+        const itemsArrow = items.map(value=>{
+            value.price = value.price + 300
+            return value
+        })
+
+        const filteredItems = items.filter(item=> item.price>4000)
+        console.log(updatedItems)
+        console.log(itemsArrow)
+        console.log(filteredItems)
+        console.log(items)
+
+
+    </script>
+</body>
+</html>

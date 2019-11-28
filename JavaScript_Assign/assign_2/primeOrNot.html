@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                //  Named Function
+
+        function isPrime(num){
+            for(var i=2;i<num/2;i++){
+                if (num%i==0){
+                    return 'Not Prime'
+                }
+            }
+            return 'Prime'
+        }
+
+        var num=17
+        console.log("A number by Named Function is:", isPrime(num))
+
+                //  Expression Function
+        
+        var number = function(num){
+            for(var i=2;i<num/2;i++){
+                if (num%i==0){
+                    return 'Not Prime'
+                }
+            }
+            return 'Prime'
+        }
+        console.log("A number by Function Expression is:", number(num))
+
+                // Self Invoked Function
+        
+        var number2 = (function(num){
+            for(var i=2;i<num/2;i++){
+                if (num%i==0){
+                    return 'Not Prime'
+                }
+            }
+            return 'Prime'
+        })(num)
+        console.log("A number by Self Invoked Function is:", number2)
+
+                //  Fat Arrow Function
+        var number3 = num=>{
+            for(var i=2;i<num/2;i++){
+                if (num%i==0){
+                    return 'Not Prime'
+                }
+            }
+            return 'Prime'
+        }
+        console.log("A number by Fat Arrow Function is:", number3(num))
+    </script>
+</body>
+</html>

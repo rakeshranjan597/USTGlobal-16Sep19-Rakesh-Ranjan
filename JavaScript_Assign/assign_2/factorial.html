@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                // Named Function
+
+        function factorial(num){
+            var fact = 1
+            while(num!==1){
+                fact*=num
+                num--
+            }
+            return fact
+        }    
+        var num = 5
+        console.log("Factorial by Named Function is:", factorial(num))
+
+                // Function Expression
+
+        var factorial = function(num){
+            var fact = 1
+            while(num!==1){
+                fact*=num
+                num--
+            }
+            return fact
+        }
+        console.log("Factorial by Function Expression is:", factorial(num));
+        
+                // Self Invoked Function
+        
+        var factorial2 = (function(num){
+            var fact = 1
+            while(num!==1){
+                fact*=num
+                num--
+            }
+            return fact
+        })(num)
+        console.log("Factorial by Self Invoked Function is:", factorial2)
+
+                // Fat Arrow Function
+
+        var factorial3 = num=>{
+            var fact = 1
+            while(num!==1){
+                fact*=num
+                num--
+            }
+            return fact
+        }
+        console.log("Factorial by Fat Arrow Function is:", factorial3(num))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+--------------SQL---------------------------------
+
+show database; // used to display all the databses 
+
+create database database_name; //used to create database
+
+use database;
+ 
+show tables;
+
+*create table table_name(column1 datatype,column2 datatype);
+
+desc table_name;
+
+drop database db_name;
+
+alter table table_name add column column_name datatype;
+
+alter table table_name drop column column_name datatype;
+
+alter table table_name change old-column_name  new- column column_name datatype;
+
+rename table old-table_name to new-table_name;
+
+---DML---
+
+1.Insert : insert into table_name(column_name1,column_name2......)values(value1,value2,value3......);
+                                                                       or
+                   : insert into table_name values(value1,value2,value3......);
+                   : insert into table_name (column-name1,column_name2......) values(value1,value2,.....);//for only particular column.
+                  : insert into table_name(column_name1,column_name2......) values(value1,value2,value3......), values(value1,value2,value3......);//for multiple insertion
+;
+
+2.Update : update table_name set column_name=value
+
+---DQL--
+
+SELECT :help us to prepare result set
+* : which takes all inputs
+from table_name : it will take table_name for execution and dump it into database(it is first proccess)
+
+1.Projection : select column_name from table_name;
+
+
+deptno:10,20,....50;
+desigantion : tester,developer,tech_support,HR,manager,clerk
+
+2.DISTINCT
+
+select distinct column_name from table_name;
+
+select distinct designation from employee;
+
+select distinct designation,deptno from employee;
+
+3.Alias
+
+select column_name as alias_name from table_name;
+              or
+select column_name  alias_name from table_name; //temporary name
+
+4.WHERE
+
+it is the clause used to filter records,only used with update,delete and select
+select * from table_name where condition;
+actual value is literal
+literals:
+1.numbers
+2.character
+3.date
+update emp set name ='ram' where eid=101;
+
+select * from table_name where column_name=value;
+order of execution : from->where->select
+
+---Operators---
+
+1.Arithematic
+
+write a query to display the salary of employee inc by 5%
+	select salary+5000 increment from employee;
+
+
+mysql> select salary-5000 increment from employee;
+
+---Relational OPerators---
+
+2.write a query to display the result from employee  whose designation is software developer
+3.write a query to displkay all the record of the employee excluding who is working in deptno=20
+4.write a query to display all the record salary>40000
+5.employee whose age < 30
+6.write a query to display name,salary,emil,number whose age>=18
+7.display salary <=40000
+
+---LOGICAL OPERATORS---
+
+AND :  	    T T = T
+            	    T F = F
+            	    F T = F//if 1st condition is false then it doesn't go for 2nd condition ,A*B
+                    F F = F
+select * from table_name where condition1 and condition2;
+
+OR : 	T T = T//if 1st condition is true so no need to go for 2nd condition
+	T F = T
+        	F T = T//it checks for true condition
+        	F F = F
+select * from table_name where condition1 or condition2;
+
+NOT :  T = F
+           F = T
+
+select * from table_name where  not condition;
+
+select * from employee where salary>20000 and deptno=30;
+
+mysql> select * from employee where gender='female' or deptno=30;
+
+mysql> select *from employee where not salary<30000;
+
+
+1.write a query to display all the employee details who is working in deptno=20 as well as salary>10000
+	select * from emp where deptno=20 and sal>10000;
+
+2.write a query to display name ,salary  from employee who is working in deptno=10 and 20
+	select name,sal from emp where deptno=10 or deptno=20;
+
+3.write a query to display employee detail whose job designation as a tester and age =25
+	select * from employee where designation='tester' and age=24;
+
+4.write a query to display all the record of the employee who is working as a tester or having salary more than 30000
+	select *from employee where designation='tester' or salary>30000;
+
+5.write a query to display name,salary and age from employee table who is working in deptno=10 or 40 or 50
+	select name,sal,age from emp where deptno in (10,40,50);
+
+6.write a query to display employee detail whose age is >25 and blood_group is b+ve.
+	select * from emp where age>25 and bg ='B+';
+
+7.write a query to display all the record of the employee excluding tester
+     select * from employee where not designation='tester';
+     select * from employee where designation!='tester';
+     select * from employee where designation<>'tester';
+
+8.write a query to display name of all the employee who is working as an HR or tester and salary>20000	
+	select name from emp where desg in('HR','Tester') and sal>20000;
+
+---Order Of Execution of logical operator---
+1.Not
+2.And
+3.Or
+
+9.write a query to display all the employee excluding software developer who are working deptno=40
+	 select *from employee where designation!='developer' and deptno=40;
+10.write a query to display all the clerk /developer who are working for deptno=10/40
+     	 select * from employee where designation in('clerk','developer') and deptno in(10,40);
+
+----Special Operators----
+
+1. IN : it is used for evaluating multiple values
+   syntax : select *from table_name WHERE column_name IN(list of values);
+
+ 	1.write a query to display all the employee working in deptno 10,40,50,70
+	   	select * from employee where deptno in(10,40,50,70);
+	2.write a query to display name of all the employee who is working as a tester Hr and clerk
+   		select ename from employee where designation in ('tester','hr','clerk');
+	3.write a query to display the detail of  manager, developer who are working in deptno=10/30 and salary is >10000
+ 	  	select *from employee where designation in('developer','manager') and deptno in(10,30) and salary>10000;
+2.NOT IN:
+    1.write a query to display all the records of the employee excluding who is working as tester clerk hr
+	 	select *from employee where designation not in('tester','hr','clerk');
+   2.write  a query to display all the record of employee whose age is 20,25,30,40 and exclude all the detail of tester and developer
+
+
+3.BETWEEN : it is used for searching based on range of values
+  syntax : select*from table_name WHERE column_name BETWEEN value1 and value2;
+
+  1.write a query to display all the detail of employee whose age is between 20 and 40
+	      select * from employee where  age between 10 and 40;
+  2.write a query to display all the detail of employee who where hired during 2019
+     	      select * from employee where doj between '2019-01-01' and '2019-12-12';
+
+4.NOT BETWEEN :
+  
+	      3.write a query to display all the record of employee excluding salary 30000 to 40000
+  	      select * from employee where salary not between 30000 and 40000;
+
+5.IS : used to check for null values
+
+             syntax :
+	select *from table_name  where column_name IS null;
+      	select*from table_name where column_name IS NOT null;
+
+6.LIKE : used for pattern matching
+	% =>matches o or 'n' characters
+        _ =>matches exactly one character 
+   
+syntax : 
+ 	select *from table_name WHERE column_name LIKE '%/_';
+
+
+1.write a query to display all the employee whose name starts with  A
+         select *from employee where  ename like'a%';
+2.write a query to display the name of employee whose 2nd character is r
+	select *from employee where  ename like'_r%';
+3.write a query to display the name of the employee which has atleast 2 a in there name
+	select *from employee where  ename like'%a%a%';
+4.write a query to display the name of the employee whose name starts with s and end with a
+	select *from employee where  ename like's%a';
+5.write a query to display all the record of employee if ename begins with a or s
+	 select *from employee where ename like 's%' or ename  like 'a%';
+6..write a query to display ename,salary who is deptno 10 20 nd 30 and desgn starts with h
+	 select ename ,salary from employee where deptno in(10,20,30) and designation like 'h%';
+
+---FUNCTIONS---
+It is a block of code which is used to perform a specific task 
+it has built in function 
+i.aggregate :  n no of i/p but one o/p
+    avg : returns average value //  select avg(salary) from employee;
+    count : it counts the number of rows  // select count(*) from employee;
+    max() : max value of selected column //  select max(salary) from employee;
+    min() :  select min(salary) from employee;
+    sum() : select sum(salary) from employee;
+ii.scalar : one i/p one o/p
+
+---ORDER BY---
+
+select column1,column2,......from table_name 
+order by column1 asc/desc;
+
+order of execution : from => where => select => order by
+
+1.write a query to display all the results of the employee and salary should be in desc
+	select *from employee order by salary desc;
+  
+----SUBQUERY----- 
+    select *from where column_name operator (select *from table_name);
+    inner query o/p => outer query i/p
+	types of  subquery :
+		i.single row subquery
+    		ii.multi row subquery
+
+		
+1. WAQTD all the records of employee whose date of joining is same as Rahul date.
+	select * from emp where doj=(select doj from emp where name='Rahul');
+
+2. WAQTD second maximum salary.
+	select max(sal) from emp where sal<(select max(sal) from emp)
+
+3. WAQTD  name of the employee who is working in a location which has atleast one 'a' in location.
+	select name from emp where deptno in (select deptno from dept where loc like '%a%');
+
+4. WAQTD all the records of employee who is working in admin,developement,maintenance.
+	select * from emp where deptno in (select deptno from dept where dname in ('Admin','Developement','Maintenance'));
+
+----Group By----
+Group by clause will execute row by row. This will create the groups of the records according to query.
+
+1. WAQTD the max salary for each dept.
+	select max(sal) from emp group by deptno;
+
+2. WAQTD the highest salary given to HR in each dept.
+	select max(sal) from emp where desg in ('HR') group by deptno;
+
+
+----Having Clause-----
+Having Clause will execute after group by clause. It is used to filter the grouped records.
+
+1. WAQTD deptno which has atleast two employees working.
+	select deptno from emp group by deptno having count(*) >=2;
+
+----Joins------------------------
+
+1.Cross Join.
+
+SYNTAX: SELECT * FROM table_name1 CROSS JOIN table_name2;
+SYNTAX: SELECT * FROM table1,table2;
+
+2.Inner Join: It is used to join only matching records from tables.
+
+SYNTAX: SELECT * FROM table1 INNER JOIN table2 ON condition;
+SYNTAX: SELECT * FROM table1,table2 WHERE condition
+
+select * from emp e inner join dept d on e.deptno=d.deptno;
+
+3. Outer Join.
+
+
+	Left Outer Join: it will pass the unmatched records of left table.
+	SYNTAX: SELECT * FROM table1 LEFT OUTER JOIN table2 ON condition;
+	SYNTAX: SELECT * FROM table1,table2 WHERE t1.colname=t2.colname(+);
+
+	Right Outer Join: it will pass the unmatched records of Right table.
+	SYNTAX: SELECT * FROM table1 RIGHT OUTER JOIN table2 ON condition;
+	SYNTAX: SELECT * FROM table1,table2 WHERE t1.colname(+)=t2.colname;
+
+4. Natural Join: It is similar to inner join where we don't specify the condition.
+
+SYNTAX: SELECT * FROM table1 NATURAL JOIN table2;
+
+5. SELF Join: joining of two same tables is known as Self join. We use this whenever the data is selected within same table but in different records.
+
+SYNTAX: SELECT * FROM table t1 JOIN table t2 ON condition.
+SYNTAX: SELECT * FROM table t1,table t2 where condition.
+
+
+
+
+

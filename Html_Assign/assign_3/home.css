@@ -1,0 +1,25 @@
+img{
+    width: 300px;
+    height: 250px;
+    padding: 1px;
+    margin: 5px;
+}
+
+.search_box{
+    text-align: center;
+    font-weight: bold;
+}
+a{
+    color:blue;
+    
+}
+#start{
+    background-image: url("/assign_3/images/new.jpeg");
+    height: 580px;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+}
+body{
+    background-color: #d3d3d3;
+}

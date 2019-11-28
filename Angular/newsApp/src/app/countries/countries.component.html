@@ -1,0 +1,35 @@
+<div class="container text-center mt-3">
+  <select name="countries" id="countries" class="col-md-4 p-2" (change)="changedCountry($event)">
+    <option value="0" selected disabled>Select Country</option>
+    <option *ngFor="let country of countryList" value="{{country.value}}">{{country.name}}</option>
+  </select>
+</div>
+<div class="row mt-3 mb-3">
+    <div class="container col-md-4 card card-body" *ngFor="let news of newsUrl">
+        <img src="{{news.urlToImage}}" alt="">
+        <h3>{{news.title}}</h3>
+      </div>
+</div>
+
+<div>
+    <form action="" class="col-md-4 offset-4 mt-2 mb-2 card card-body" [formGroup]="form" (ngSubmit)="submit(form)">
+        <div>
+            <h1 class="bg-dark text-white text-center"> Please Login </h1>
+        </div>
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Enter your Username" formControlName="name">
+            <div *ngIf="name.touched && name.invalid">
+                <p *ngIf="name.errors.required"> This field is not required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Enter your Password" formControlName="pass">
+            <div *ngIf="pass.touched && name.invalid">
+                <p *ngIf="passs.errors.required"> This field is not required</p>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-outline-dark float-right" [disabled]="form.invalid"> Login </button>
+        </div>
+    </form>
+</div>

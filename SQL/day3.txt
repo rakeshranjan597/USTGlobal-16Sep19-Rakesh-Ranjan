@@ -1,0 +1,614 @@
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-05 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.10 sec)
+
+mysql> create table dept(deptno int(11),dname varchar(50),location(120),primary key(deptno));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(120),primary key(deptno))' at line 1
+mysql> create table dept(deptno int(11),dname varchar(50),location varchar(120),primary key(deptno));
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> show dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept' at line 1
+mysql> desc dept
+    -> desc dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc dept' at line 2
+mysql> show tables;
++----------------------+
+| Tables_in_ust_global |
++----------------------+
+| dept                 |
+| emp                  |
+| items                |
++----------------------+
+3 rows in set (0.00 sec)
+
+mysql> desc dept;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptno   | int(11)      | NO   | PRI | 0       |       |
+| dname    | varchar(50)  | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.10 sec)
+
+mysql> insert into dept values(10,'Developement','Gurgaon');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> update dept set dname='Admin';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> insert into dept values(20,'Developement','Bangalore');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into dept values(30,'Testing','Pune');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into dept values(40,'Operation','Delhi');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into dept values(50,'Maintenance','Hyderabad');
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into dept values(60,'Production','Chandigarh');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from dept;
++--------+--------------+------------+
+| deptno | dname        | location   |
++--------+--------------+------------+
+|     10 | Admin        | Gurgaon    |
+|     20 | Developement | Bangalore  |
+|     30 | Testing      | Pune       |
+|     40 | Operation    | Delhi      |
+|     50 | Maintenance  | Hyderabad  |
+|     60 | Production   | Chandigarh |
++--------+--------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> alter table dept change cloumn location loc varchar(120);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'loc varchar(120)' at line 1
+mysql> alter table dept change column location loc varchar(120);
+Query OK, 6 rows affected (0.26 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from dept;
++--------+--------------+------------+
+| deptno | dname        | loc        |
++--------+--------------+------------+
+|     10 | Admin        | Gurgaon    |
+|     20 | Developement | Bangalore  |
+|     30 | Testing      | Pune       |
+|     40 | Operation    | Delhi      |
+|     50 | Maintenance  | Hyderabad  |
+|     60 | Production   | Chandigarh |
++--------+--------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where doj = (select doj from emp where name='Rahul');
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+| eid | name  | mobile     | dob        | doj        | bg   | deptno | sal   | email | gender | desg | age  |
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+|  22 | Rahul | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL  | Male   | NULL |   30 |
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+1 row in set (0.12 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-05 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.00 sec)
+
+mysql> update emp set doj='2019-09-16' where eid=6;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2017-05-06' where eid=21;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2019-09-16' where eid=4;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2019-09-16' where eid=14;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2019-10-06' where eid=7;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2019-10-06' where eid=20;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2017-05-06' where eid=9;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp where doj = (select doj from emp where name='Rahul');
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+| eid | name  | mobile     | dob        | doj        | bg   | deptno | sal   | email | gender | desg | age  |
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+|  22 | Rahul | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL  | Male   | NULL |   30 |
++-----+-------+------------+------------+------------+------+--------+-------+-------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2019-09-16 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-09-16 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2019-10-06 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2017-05-06 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2019-09-16 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2019-10-06 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-06 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.00 sec)
+
+mysql> update emp set doj='2017-05-06' where eid=22;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp where doj = (select doj from emp where name='Rahul');
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email              | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2017-05-06 | B+   |     40 | 55000 | priyanka@gmail.com | Female | Software Engineer |   23 |
+|  21 | Kapil    | 9874556321 | 1995-03-13 | 2017-05-06 | O-   |     30 | 20000 | NULL               | Male   | NULL              |   32 |
+|  22 | Rahul    | 9874556661 | 1995-04-10 | 2017-05-06 | O+   |   NULL | 25000 | NULL               | Male   | NULL              |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set doj='2018-10-22' where eid=10;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2018-10-22' where eid=18;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2018-10-22' where eid=2;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp where doj = (select doj from emp where name='Vini');
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini    | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   4 | Rakesh  | 9876543207 | 1997-03-23 | 2019-09-16 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   6 | Geetika | 8816678900 | 1996-09-24 | 2019-09-16 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|  14 | Brie    | 9995514334 | 1995-03-17 | 2019-09-16 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set doj='2019-09-16' where eid=5;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set doj='2019-09-16' where eid=12;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2018-10-22 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2019-09-16 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-09-16 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-09-16 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2019-10-06 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2017-05-06 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2018-10-22 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2019-09-16 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2019-09-16 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-22 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2019-10-06 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-06 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-05-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.00 sec)
+
+mysql> select max(sal) from emp where sal<(select max(sal) from emp);
++----------+
+| max(sal) |
++----------+
+|    75000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select name from emp where deptno=(select deptno from dept where loc like '%a%');
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select name from emp where deptno in (select deptno from dept where loc like '%a%');
++-----------+
+| name      |
++-----------+
+| Vini      |
+| Sarah     |
+| Geetika   |
+| Kunal     |
+| Ankita    |
+| Aman      |
+| Ramesh    |
+| Brie      |
+| Elizabeth |
+| Tony      |
+| Marvel    |
+| Peter     |
++-----------+
+12 rows in set (0.10 sec)
+
+mysql> update emp set name='Lizze' and email='lizze@gmail.com' where eid=15;
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 'Lizze'
+mysql> update emp set name='Lizze' where eid=15;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set email='lizze@gmail.com' where eid=15;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2018-10-22 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2019-09-16 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-09-16 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-09-16 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant  | 9987655432 | 1996-11-18 | 2019-10-06 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha     | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2017-05-06 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2018-10-22 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman     | 8295514378 | 1997-07-13 | 2019-09-16 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh   | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie     | 9995514334 | 1995-03-17 | 2019-09-16 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Lizze    | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | lizze@gmail.com          | Female | CEO               |   29 |
+|  16 | Tony     | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash    | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya   | 9995880000 | 1996-05-18 | 2018-10-22 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel   | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter    | 9995880027 | 1997-07-08 | 2019-10-06 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil    | 9874556321 | 1995-03-13 | 2017-05-06 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul    | 9874556661 | 1995-04-10 | 2017-05-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno in (select deptno from dept where dname in('Admin','Developement','Maintenance');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select * from emp where deptno in(select deptno from dept where dname in('Admin','Developement','Maintenance'));
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+--------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg         | age  |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+--------------+------+
+|   1 | Vini    | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer    |   23 |
+|   5 | Sarah   | 9876543206 | 1998-07-22 | 2019-09-16 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support |   23 |
+|   6 | Geetika | 8816678900 | 1996-09-24 | 2019-09-16 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer    |   25 |
+|  10 | Kunal   | 7872345990 | 1996-08-10 | 2018-10-22 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support |   30 |
+|  11 | Ankita  | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR           |   23 |
+|  12 | Aman    | 8295514378 | 1997-07-13 | 2019-09-16 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR           |   21 |
+|  13 | Ramesh  | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk        |   35 |
+|  14 | Brie    | 9995514334 | 1995-03-17 | 2019-09-16 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager      |   27 |
+|  15 | Lizze   | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | lizze@gmail.com          | Female | CEO          |   29 |
+|  16 | Tony    | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager      |   33 |
+|  19 | Marvel  | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR           |   28 |
+|  20 | Peter   | 9995880027 | 1997-07-08 | 2019-10-06 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer    |   28 |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+--------------+------+
+12 rows in set (0.00 sec)
+
+mysql> select max(sal) from emp group by deptno;
++----------+
+| max(sal) |
++----------+
+|    25000 |
+|    80000 |
+|    75000 |
+|    50000 |
+|    65000 |
+|    60000 |
++----------+
+6 rows in set (0.00 sec)
+
+mysql> select max(sal),deptno from emp group by deptno;
++----------+--------+
+| max(sal) | deptno |
++----------+--------+
+|    25000 |   NULL |
+|    80000 |     10 |
+|    75000 |     20 |
+|    50000 |     30 |
+|    65000 |     40 |
+|    60000 |     50 |
++----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select max(sal) from emp where desg in 'HR' group by deptno;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''HR' group by deptno' at line 1
+mysql> select max(sal) from emp where desg='HR' group by deptno;
++----------+
+| max(sal) |
++----------+
+|    45000 |
+|    70000 |
++----------+
+2 rows in set (0.00 sec)
+
+mysql> select max(sal) from emp where desg in ('HR') group by deptno;
++----------+
+| max(sal) |
++----------+
+|    45000 |
+|    70000 |
++----------+
+2 rows in set (0.00 sec)
+
+mysql> select deptno from emp group by deptno having count(*) >2;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
++--------+
+5 rows in set (0.09 sec)
+
+mysql> select deptno from emp group by deptno having count(*) >=2;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show tables' at line 2
+mysql> show tables;
++----------------------+
+| Tables_in_ust_global |
++----------------------+
+| dept                 |
+| emp                  |
+| items                |
++----------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from items;
+Empty set (0.00 sec)
+
+mysql> desc items;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Pid      | int(2)      | YES  |     | NULL    |       |
+| Pname    | varchar(10) | YES  |     | NULL    |       |
+| Quantity | int(3)      | YES  |     | NULL    |       |
+| cost     | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into items values(1,'Pen',10,100),(2,'Mobile',1,20000),(3,'Laptop',2,50000);
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pen    |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
++------+--------+----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into items values(4,'Scale',1,10);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> set autocommit-0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-0' at line 1
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into items values(5,'Pencil',1,8);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pen    |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
+|    5 | Pencil |        1 |     8 |
++------+--------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pen    |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
++------+--------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pen    |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
++------+--------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> update items set Pname='Pencil' where Pid=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pencil |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
++------+--------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pencil |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
++------+--------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql>                                                                                            
+mysql>                                                                                            
+mysql>                                                                                            
+mysql> savepoint a;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into items values(5,'Pen',1,8);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update items set Pname='rrr' where Pid=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | rrr    |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
+|    5 | Pen    |        1 |     8 |
++------+--------+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from items;
++------+--------+----------+-------+
+| Pid  | Pname  | Quantity | cost  |
++------+--------+----------+-------+
+|    1 | Pencil |       10 |   100 |
+|    2 | Mobile |        1 | 20000 |
+|    3 | Laptop |        2 | 50000 |
+|    4 | Scale  |        1 |    10 |
++------+--------+----------+-------+
+4 rows in set (0.00 sec)
+

@@ -1,0 +1,523 @@
+mysql> select name,age,sal from emp where deptno=10 or deptno=40 or deptno=50;
++----------+------+-------+
+| name     | age  | sal   |
++----------+------+-------+
+| Sumer    |   28 | 60000 |
+| Rakesh   |   25 | 65000 |
+| Sarah    |   23 | 35000 |
+| Priyanka |   23 | 55000 |
+| Kunal    |   30 | 35000 |
+| Ankita   |   23 | 45000 |
++----------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where age>25 or bg='B+';
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   8 | Neha     | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where not desg='Test Engineer';
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where desg!='Test Engineer';
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where desg<>'Test Engineer';
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+8 rows in set (0.00 sec)
+
+mysql> select name from emp where desg in ('HR','Test Engineer') and sal>40000;
++----------+
+| name     |
++----------+
+| Ashutosh |
+| Sidhant  |
+| Neha     |
+| Ankita   |
++----------+
+4 rows in set (0.03 sec)
+
+mysql> select * from emp where desg!='Developer' and deptno=40;
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email              | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com    | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com   | Male   | Software Engineer |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com | Female | Software Engineer |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where desg='Tech Support' and deptno in (10,40);
+Empty set (0.00 sec)
+
+mysql> select * from emp where desg='Developer' and deptno in (10,40);
+Empty set (0.00 sec)
+
+mysql> select * from emp where desg='Software Engineer' and deptno in (10,40);
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email              | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com    | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com   | Male   | Software Engineer |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com | Female | Software Engineer |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno in(40,50,70,80);
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email              | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com    | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com   | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com    | Female | Tech Support      |   23 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com    | Male   | Tech Support      |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------+--------+-------------------+------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> select name from emp where desg in('Test Engineer','HR','Tech Support');
++----------+
+| name     |
++----------+
+| Ashutosh |
+| Sarah    |
+| Sidhant  |
+| Neha     |
+| Kunal    |
+| Ankita   |
++----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where desg in('Developer','HR','Test Engineer') and deptno in(20,30) and sal>40000;
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg          | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer     |   23 |
+|   3 | Ashutosh | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer     |   25 |
+|   7 | Sidhant  | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer |   20 |
+|   8 | Neha     | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where desg not in('HR','Test Engineer');
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from emp where age in(20,25,30,40) and desg not in('Test Engineer','Software Engineer');
++-----+---------+------------+------------+------------+------+--------+-------+-----------------------+--------+--------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                 | gender | desg         | age  |
++-----+---------+------------+------------+------------+------+--------+-------+-----------------------+--------+--------------+------+
+|   6 | Geetika | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com | Female | Developer    |   25 |
+|  10 | Kunal   | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com       | Male   | Tech Support |   30 |
++-----+---------+------------+------------+------------+------+--------+-------+-----------------------+--------+--------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where age between 20 and 40;
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini     | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer    | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh   | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah    | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika  | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant  | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha     | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal    | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
++-----+----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from emp where doj between '2017-01-01' and '2017-12-31';
++-----+---------+------------+------------+------------+------+--------+-------+-------------------+--------+---------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email             | gender | desg          | age  |
++-----+---------+------------+------------+------------+------+--------+-------+-------------------+--------+---------------+------+
+|   7 | Sidhant | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com | Male   | Test Engineer |   20 |
++-----+---------+------------+------------+------------+------+--------+-------+-------------------+--------+---------------+------+
+1 row in set (0.10 sec)
+
+mysql> select * from emp where sal not between 35000 and 55000;
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini    | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer   | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh  | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   6 | Geetika | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where sal not between 45000 and 55000;
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini    | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer   | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh  | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah   | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|  10 | Kunal   | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp values(12,'Aman',8295514378,'1997-07-13','2017-04-12','A-',10,40000,'aman@gmail.com','Male','HR',21);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into emp values(13,'Ramesh',8295514334,'1994-02-15','2017-06-22','AB-',10,20000,'ramesh@gmail.com','Male','Clerk',35);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into emp values(14,'Brie',9995514334,'1995-03-17','2018-08-14','B-',50,60000,'brie@gmail.com','Female','Manager',27);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into emp values(15,'Elizabeth',9995577334,'1996-03-10','2017-09-29','B+',10,80000,'elizabeth@gmail.com','Female','CEO',29);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+15 rows in set (0.00 sec)
+
+mysql> insert into emp values(16,'Tony',9995570034,'1997-09-01','2017-11-02','A+',20,55000,'tony@gmail.com','Male','Manager',33);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into emp values(17,'Akash',9995570000,'1996-07-08','2018-10-22','A+',30,35000,'akash@gmail.com','Male','Clerk',24);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into emp values(18,'Shreya',9995880000,'1996-05-18','2018-10-02','AB-',40,20000,'shreya@gmail.com','Female','Clerk',26);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into emp values(19,'Marvel',9995880077,'1996-05-08','2018-11-12','O-',20,70000,'marvel@gmail.com','Female','HR',28);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into emp values(20,'Peter',9995880027,'1997-07-08','2018-01-02','O+',20,75000,'peter@gmail.com','Male','Developer',28);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+20 rows in set (0.00 sec)
+
+mysql> insert into emp(eid,name,mobile,bg,deptno,sal,gender,age) vlaues(21,'Kapil',9874556321,'O-',30,20000,'Male',32);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'vlaues(21,'Kapil',9874556321,'O-',30,20000,'Male',32)' at line 1
+mysql> insert into emp(eid,name,mobile,bg,deptno,sal,gender,age) values(21,'Kapil',9874556321,'O-',30,20000,'Male',32);
+ERROR 1364 (HY000): Field 'dob' doesn't have a default value
+mysql> insert into emp(eid,name,mobile,dob,doj,bg,deptno,sal,gender,age) values(21,'Kapil',9874556321,'1995-03-13','2017-05-05','O-',30,20000,'Male',32);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-05 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+21 rows in set (0.00 sec)
+
+mysql> insert into emp(eid,name,mobile,dob,doj,bg,deptno,sal,gender,age) values(22,'Rahul',9874556661,'1995-04-10','2017-07-06','O+',25000,'Male',30);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into emp(eid,name,mobile,dob,doj,bg,sal,gender,age) values(22,'Rahul',9874556661,'1995-04-10','2017-07-06','O+',25000,'Male',30);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from emp;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-05 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.00 sec)
+
+mysql> select * from emp where name like 'A%';
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email            | gender | desg          | age  |
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+|   3 | Ashutosh | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com   | Male   | Test Engineer |   23 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com | Female | HR            |   23 |
+|  12 | Aman     | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com   | Male   | HR            |   21 |
+|  17 | Akash    | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com  | Male   | Clerk         |   24 |
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where name like 'a%';
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+| eid | name     | mobile     | dob        | doj        | bg   | deptno | sal   | email            | gender | desg          | age  |
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+|   3 | Ashutosh | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com   | Male   | Test Engineer |   23 |
+|  11 | Ankita   | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com | Female | HR            |   23 |
+|  12 | Aman     | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com   | Male   | HR            |   21 |
+|  17 | Akash    | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com  | Male   | Clerk         |   24 |
++-----+----------+------------+------------+------------+------+--------+-------+------------------+--------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where name like '_i%';
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+| eid | name    | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg          | age  |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+|   1 | Vini    | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer     |   23 |
+|   7 | Sidhant | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer |   20 |
++-----+---------+------------+------------+------------+------+--------+-------+--------------------------+--------+---------------+------+
+2 rows in set (0.00 sec)
+
+mysql> ,
+    -> 
+    -> 
+    -> see
+    -> select * from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+
+
+see
+select * from emp' at line 1
+mysql> select name from emp where name like '%l%l%';
+Empty set (0.00 sec)
+
+mysql> select name from emp where name like '%i%i%';
++------+
+| name |
++------+
+| Vini |
++------+
+1 row in set (0.00 sec)
+
+mysql> select name from emp where name like 's%t';
++---------+
+| name    |
++---------+
+| Sidhant |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select name from emp where name like 'a%' or like 's%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like 's%'' at line 1
+mysql> select name from emp where name like 'a%' or name like 's%';
++----------+
+| name     |
++----------+
+| Sumer    |
+| Ashutosh |
+| Sarah    |
+| Sidhant  |
+| Ankita   |
+| Aman     |
+| Akash    |
+| Shreya   |
++----------+
+8 rows in set (0.00 sec)
+
+mysql> select name,sal from emp where deptno in(10,20,30) and desg like 's%';
+Empty set (0.00 sec)
+
+mysql> select name,sal from emp where deptno in(10,20,30,40) and desg like 's%';
++----------+-------+
+| name     | sal   |
++----------+-------+
+| Sumer    | 60000 |
+| Rakesh   | 65000 |
+| Priyanka | 55000 |
++----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select sum(sal) from emp;
++----------+
+| sum(sal) |
++----------+
+|  1075000 |
++----------+
+1 row in set (0.19 sec)
+
+mysql> select min(sal) from emp;
++----------+
+| min(sal) |
++----------+
+|    20000 |
++----------+
+1 row in set (0.09 sec)
+
+mysql> select max(sal) from emp;
++----------+
+| max(sal) |
++----------+
+|    80000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select avg(sal) from emp;
++------------+
+| avg(sal)   |
++------------+
+| 48863.6364 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|       22 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp order by sal asc;
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+| eid | name      | mobile     | dob        | doj        | bg   | deptno | sal   | email                    | gender | desg              | age  |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+|  21 | Kapil     | 9874556321 | 1995-03-13 | 2017-05-05 | O-   |     30 | 20000 | NULL                     | Male   | NULL              |   32 |
+|  18 | Shreya    | 9995880000 | 1996-05-18 | 2018-10-02 | AB-  |     40 | 20000 | shreya@gmail.com         | Female | Clerk             |   26 |
+|  13 | Ramesh    | 8295514334 | 1994-02-15 | 2017-06-22 | AB-  |     10 | 20000 | ramesh@gmail.com         | Male   | Clerk             |   35 |
+|  22 | Rahul     | 9874556661 | 1995-04-10 | 2017-07-06 | O+   |   NULL | 25000 | NULL                     | Male   | NULL              |   30 |
+|  17 | Akash     | 9995570000 | 1996-07-08 | 2018-10-22 | A+   |     30 | 35000 | akash@gmail.com          | Male   | Clerk             |   24 |
+|   5 | Sarah     | 9876543206 | 1998-07-22 | 2019-07-19 | B+   |     50 | 35000 | sarah@gmail.com          | Female | Tech Support      |   23 |
+|  10 | Kunal     | 7872345990 | 1996-08-10 | 2019-07-20 | B+   |     50 | 35000 | kunal@gmail.com          | Male   | Tech Support      |   30 |
+|  12 | Aman      | 8295514378 | 1997-07-13 | 2017-04-12 | A-   |     10 | 40000 | aman@gmail.com           | Male   | HR                |   21 |
+|  11 | Ankita    | 7456789455 | 2000-07-01 | 2018-07-02 | O+   |     10 | 45000 | ankita@gmail.com         | Female | HR                |   23 |
+|   8 | Neha      | 9987655234 | 1996-05-24 | 2019-07-25 | A-   |     30 | 50000 | neha@gmail.com           | Female | Test Engineer     |   30 |
+|   7 | Sidhant   | 9987655432 | 1996-11-18 | 2017-02-16 | AB-  |     30 | 50000 | sidhant@gmail.com        | Male   | Test Engineer     |   20 |
+|   3 | Ashutosh  | 9876543208 | 1996-07-18 | 2019-06-12 | A+   |     30 | 50000 | ashu@gmail.com           | Male   | Test Engineer     |   23 |
+|   9 | Priyanka  | 9872334888 | 1998-03-02 | 2019-02-09 | B+   |     40 | 55000 | priyanka@gmail.com       | Female | Software Engineer |   23 |
+|  16 | Tony      | 9995570034 | 1997-09-01 | 2017-11-02 | A+   |     20 | 55000 | tony@gmail.com           | Male   | Manager           |   33 |
+|  14 | Brie      | 9995514334 | 1995-03-17 | 2018-08-14 | B-   |     50 | 60000 | brie@gmail.com           | Female | Manager           |   27 |
+|   6 | Geetika   | 8816678900 | 1996-09-24 | 2019-02-19 | A+   |     20 | 60000 | geetika2707@gmail.com    | Female | Developer         |   25 |
+|   2 | Sumer     | 9876543209 | 1996-04-19 | 2019-10-06 | O+   |     40 | 60000 | sumer@gmail.com          | Male   | Software Engineer |   28 |
+|   4 | Rakesh    | 9876543207 | 1997-03-23 | 2018-03-11 | AB+  |     40 | 65000 | rakesh@gmail.com         | Male   | Software Engineer |   25 |
+|  19 | Marvel    | 9995880077 | 1996-05-08 | 2018-11-12 | O-   |     20 | 70000 | marvel@gmail.com         | Female | HR                |   28 |
+|   1 | Vini      | 8816832707 | 1996-08-17 | 2019-09-16 | B+   |     20 | 70000 | vikassaini2707@gmail.com | Male   | Developer         |   23 |
+|  20 | Peter     | 9995880027 | 1997-07-08 | 2018-01-02 | O+   |     20 | 75000 | peter@gmail.com          | Male   | Developer         |   28 |
+|  15 | Elizabeth | 9995577334 | 1996-03-10 | 2017-09-29 | B+   |     10 | 80000 | elizabeth@gmail.com      | Female | CEO               |   29 |
++-----+-----------+------------+------------+------------+------+--------+-------+--------------------------+--------+-------------------+------+
+22 rows in set (0.10 sec)
+

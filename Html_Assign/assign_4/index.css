@@ -1,0 +1,96 @@
+body{
+    font-family: Verdana;
+}
+#imgFontSize{
+    font-size: 20px;
+}
+
+hr{
+    border: 3px solid rgb(201, 198, 198);
+}
+
+.forCenter{
+    text-align: center;
+}
+
+.colLightBlack{
+    color: rgb(129, 126, 126);
+    font-size: 20px;
+}
+
+.box{
+    text-align: center;
+}
+
+i{
+    color: pink;
+}
+
+.btnCenter{
+    text-align: center;
+}
+
+.imgSize{
+    width: 420px;
+    height: 250px;
+}
+
+h1{
+    font-weight: bold;
+}
+
+#last{
+    background-color: black;
+}
+
+#lastH1{
+    color: white;
+}
+#lastH2{
+    color: white;
+}
+
+i{
+    color: red;
+}
+
+.btnSocial{
+    font-size: 25px;
+    width: 45px;
+    border-radius: 5px;
+}
+
+.flink{
+    color:purple;
+}
+img{
+    width: auto;
+}
+
+.btn{
+    font-size: 20px;
+    padding: 15px;
+}
+
+form{
+    margin-left: 200px;
+    border:2px solid black;
+    width:700px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+input[type=text]{
+    text-align: left;
+    padding: 22px;
+    outline: none;
+    border: 0px solid black;
+    background-color: rgb(29, 27, 27);
+    color: white;
+}
+
+#message{
+    padding: 70px;
+}
+li{
+    color: red;
+}

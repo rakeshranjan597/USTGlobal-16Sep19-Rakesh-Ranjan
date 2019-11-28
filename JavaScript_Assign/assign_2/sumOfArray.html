@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                //  Named Function
+        
+        function sumOfArray(array){
+            sum  = 0
+            for(var i in array){
+                sum+=array[i]
+            }
+            return sum
+        }
+        var array = [10,20,30,40,50]
+        console.log("Sum of array by Named Function:", sumOfArray(array))
+                
+                //  Function Expression
+
+        var arr = function(array){
+            sum  = 0
+            for(var i in array){
+                sum+=array[i]
+            }
+            return sum
+        }
+        console.log("Sum of array by Function Expression:", arr(array))
+
+                //  Self Invoked Function
+            
+        var arr2 = (function(array){
+            sum  = 0
+            for(var i in array){
+                sum+=array[i]
+            }
+            return sum
+        })(array)
+        console.log("Sum of array by Self Invoked Function:", arr2)
+
+                //  Fat Arrow Function
+        
+        var arr3 = array=>{
+            sum  = 0
+            for(var i in array){
+                sum+=array[i]
+            }
+            return sum
+        }
+        console.log("Sum of array by Fat Arrow Function:", arr3(array))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.col-md-3.card.card-body{
+    height: 550px;
+    overflow: scroll;
+}
+img{
+    height: 190px;
+    cursor: pointer;
+}

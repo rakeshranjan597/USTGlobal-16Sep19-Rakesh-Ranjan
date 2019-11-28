@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                // Named Function
+
+        function fibonacci(num){
+            var a = 0
+            var b = 1
+            console.log(a)
+            console.log(b)
+            for(i=2;i<num;i++){
+                var c = a + b 
+                console.log(c)
+                a = b
+                b = c
+            }
+        }    
+        var num = 8
+        console.log("Fibonacci by Named Function:")
+        fibonacci(num)
+
+                // Functon Expression
+        
+        var fibonacci2 = function(num){
+            var a = 0
+            var b = 1
+            console.log(a)
+            console.log(b)
+            for(i=2;i<num;i++){
+                var c = a + b 
+                console.log(c)
+                a = b
+                b = c
+            }
+        }
+        console.log("Fibonacci by Function Expression:")
+        fibonacci2(num);
+        
+                // Self Function
+        
+        console.log("Fibonacci by Self Function:");
+        (function(num){
+            var a = 0
+            var b = 1
+            console.log(a)
+            console.log(b)
+            for(i=2;i<num;i++){
+                var c = a + b 
+                console.log(c)
+                a = b
+                b = c
+            }
+        })(num)
+
+                // Fat Arrow Function
+
+        var fibonacci3 = num=>{
+            var a = 0
+            var b = 1
+            console.log(a)
+            console.log(b)
+            for(i=2;i<num;i++){
+                var c = a + b 
+                console.log(c)
+                a = b
+                b = c
+            }
+        }
+        console.log("Fibonacci by Fat Arrow Function:")
+        fibonacci3(num)
+        
+    </script>
+</body>
+</html>

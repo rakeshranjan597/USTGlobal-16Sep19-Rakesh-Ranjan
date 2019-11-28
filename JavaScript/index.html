@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var age=22;
+        console.log('Age='+age);
+        var name='chota Bheem';
+        console.log('Name='+name);
+        var hasHobbies=true;
+        console.log('Has Hobbies='+hasHobbies);
+        var data=null;
+        console.log('Data='+data);
+        var married;
+        console.log('Married='+married);
+
+    </script>
+    <script src="date.js"></script>
+</head>
+<body>
+    <script>
+        var fruits=['Orange','Mango','Apple','PineApple'];
+        console.log('Fruits=',fruits);
+        console.log('Fruits=',fruits[0]);    
+        console.log('Fruits Length=',fruits.length);    
+        
+        var person={
+            firstName:'Alia Bhatt',
+            lastName:'Ranbir',
+            age:26,
+            phoneno:7488320112,
+            getFullName:function(){
+                return this.firstName+' '+this.lastName
+            }
+        }
+        var lastName=person.lastName;
+        console.log('Last Name',lastName);
+        var personAge=person.age;
+        console.log('Age',personAge);
+        var fullName=person.getFullName();
+        console.log('FullName',fullName);
+
+        console.log("~~~~~~~~~~~~~~~")
+        var a=10
+        var str='10'
+        if (a===str){
+            console.log("Equal")
+        }else{
+            console.log("Not Equal")
+        }
+        
+        console.log("~~~~~~~~~~~~~~")
+        var num=15
+        console.log(typeof(num))
+        var str='rakesh'
+        console.log(typeof(str))
+        var nu=null
+        console.log(typeof(nu))
+        var und=undefined
+        console.log(typeof(und))
+        var xx
+        console.log(typeof(xx))
+        
+    </script>
+</body>
+</html>

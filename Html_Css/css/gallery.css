@@ -1,0 +1,13 @@
+img{
+    width: 250px;
+    height: 250px;
+    border: 2px solid red;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 10px 10px 25px red;
+}
+img:hover{
+    transition: all 2s;
+    transform: scale(2.2,2.2);
+}
